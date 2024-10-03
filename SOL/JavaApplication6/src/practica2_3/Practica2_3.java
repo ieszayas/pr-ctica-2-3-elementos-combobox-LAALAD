@@ -6,6 +6,7 @@ package practica2_3;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -34,11 +35,18 @@ public class Practica2_3 extends javax.swing.JFrame {
         campo_texto = new javax.swing.JTextField();
         boton_anadir = new javax.swing.JButton();
         caja_opciones = new javax.swing.JComboBox<>();
+        boton_agregar = new javax.swing.JButton();
+        boton_borrar = new javax.swing.JButton();
+        caja_1_2 = new javax.swing.JComboBox<>();
+        boton_icono = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Agregar elementos comobox");
         setResizable(false);
 
+        jLabel1.setBackground(new java.awt.Color(153, 153, 255));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("Añade el nombre de los modulos en los que estes matriculado: ");
 
         boton_anadir.setText("Añadir");
@@ -54,6 +62,29 @@ public class Practica2_3 extends javax.swing.JFrame {
             }
         });
 
+        boton_agregar.setText("Agregar Todos");
+        boton_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_agregarActionPerformed(evt);
+            }
+        });
+
+        boton_borrar.setText("Borrar todos");
+        boton_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_borrarActionPerformed(evt);
+            }
+        });
+
+        caja_1_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PRIMERO", "SEGUNDO" }));
+
+        boton_icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/practica2_3/trash.png"))); // NOI18N
+        boton_icono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_iconoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -61,30 +92,48 @@ public class Practica2_3 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(boton_anadir)
-                        .addGap(389, 389, 389))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(campo_texto, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(caja_opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(410, 410, 410))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(caja_1_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(campo_texto, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(caja_opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(boton_agregar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(boton_borrar)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_icono)
+                        .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(37, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addContainerGap(77, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campo_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caja_opciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1)
+                    .addComponent(caja_1_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(campo_texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(caja_opciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boton_icono))
                 .addGap(18, 18, 18)
-                .addComponent(boton_anadir)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(boton_anadir)
+                    .addComponent(boton_agregar)
+                    .addComponent(boton_borrar))
                 .addGap(15, 15, 15))
         );
 
@@ -93,16 +142,16 @@ public class Practica2_3 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(16, 16, 16)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -111,16 +160,33 @@ public class Practica2_3 extends javax.swing.JFrame {
 
     private void boton_anadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_anadirActionPerformed
         // TODO add your handling code here:
-        if (existeOpcion()) {
-            JOptionPane.showMessageDialog(this, "Asignatura ya existente", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        } else {
-            caja_opciones.addItem(campo_texto.getText());
+        String asignatura = campo_texto.getText().toUpperCase();
+
+        if (asignatura.isBlank()) {
+            JOptionPane.showMessageDialog(null, "No has escrito ninguna asignatura", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
         }
+
+        if (caja_1_2.getSelectedItem().toString().equals("PRIMERO")) {
+            asignatura = "1º " + asignatura;
+        }
+
+        if (caja_1_2.getSelectedItem().toString().equals("SEGUNDO")) {
+            asignatura = "2º " + asignatura;
+        }
+
+        if (existeOpcion(asignatura)) {
+            JOptionPane.showMessageDialog(null, "Asignatura ya existente", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        caja_opciones.addItem(asignatura);
+        campo_texto.setText("");
     }//GEN-LAST:event_boton_anadirActionPerformed
 
-    public boolean existeOpcion() {
+    public boolean existeOpcion(String entrada) {
         for (int i = 0; i < caja_opciones.getItemCount(); i++) {
-            if (caja_opciones.getItemAt(i).equals(campo_texto.getText())) {
+            if (caja_opciones.getItemAt(i).equalsIgnoreCase(entrada)) {
                 return true;
             }
         }
@@ -130,6 +196,40 @@ public class Practica2_3 extends javax.swing.JFrame {
     private void caja_opcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caja_opcionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_caja_opcionesActionPerformed
+
+    private void boton_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_borrarActionPerformed
+        // TODO add your handling code here:
+        caja_opciones.removeAllItems();
+    }//GEN-LAST:event_boton_borrarActionPerformed
+
+    private String[] asignaturasSegundo = {"SERVICIOS Y PROCESOS", "DESARROLLO DE INTERFACES", "STMAS. DE GESTION EMPRESARIAL", "ACCESO A DATOS", "INGLES", "PROG. MULTIMEDIA"};
+    private String[] asignaturasPrimero = {"PROGRAMACION", "LENGUAJE DE MARCAS", "SISTEMAS INORMATICOS", "BASE DE DATOS", "ENTORNOS DE DESARROLLO"};
+    private void boton_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_agregarActionPerformed
+        // TODO add your handling code here: 
+        if (caja_1_2.getSelectedItem().toString().equals("PRIMERO")) {
+            for (String asignatura : asignaturasPrimero) {
+                asignatura = "1º " + asignatura;
+                if (!existeOpcion(asignatura)) {
+                    caja_opciones.addItem(asignatura);
+                }
+            }
+
+        }
+        if (caja_1_2.getSelectedItem().toString().equals("SEGUNDO")) {
+            for (String asignatura : asignaturasSegundo) {
+                asignatura = "2º " + asignatura;
+                if (!existeOpcion(asignatura)) {
+                    caja_opciones.addItem(asignatura);
+                }
+            }
+
+        }
+    }//GEN-LAST:event_boton_agregarActionPerformed
+
+    private void boton_iconoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_iconoActionPerformed
+        // TODO add your handling code here:
+        caja_opciones.removeItem(caja_opciones.getSelectedItem());
+    }//GEN-LAST:event_boton_iconoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,13 +261,25 @@ public class Practica2_3 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try {
+                    //UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+                    //UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+                    //UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 new Practica2_3().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton_agregar;
     private javax.swing.JButton boton_anadir;
+    private javax.swing.JButton boton_borrar;
+    private javax.swing.JButton boton_icono;
+    private javax.swing.JComboBox<String> caja_1_2;
     private javax.swing.JComboBox<String> caja_opciones;
     private javax.swing.JTextField campo_texto;
     private javax.swing.JLabel jLabel1;
