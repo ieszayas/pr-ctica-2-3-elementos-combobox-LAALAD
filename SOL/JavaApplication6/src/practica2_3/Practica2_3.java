@@ -231,6 +231,7 @@ public class Practica2_3 extends javax.swing.JFrame {
         caja_opciones.removeItem(caja_opciones.getSelectedItem());
     }//GEN-LAST:event_boton_iconoActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
